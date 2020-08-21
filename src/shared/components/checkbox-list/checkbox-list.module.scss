@@ -1,0 +1,19 @@
+@import '../../styles/index.scss';
+
+.checkboxList {
+    @include custom-input;
+    width: 100%;
+
+    div {
+        display: flex;
+        justify-content: space-between;
+
+        & > label {
+            flex: 1;
+        }
+    }
+
+    &.invalid span {
+        color: $red;
+    }
+}

@@ -1,0 +1,10 @@
+@import '../../../shared/styles/index.scss';
+
+.customSelect {
+    @include custom-input;
+
+    select {
+        color: $primary;
+        font-family: inherit;
+    }
+}

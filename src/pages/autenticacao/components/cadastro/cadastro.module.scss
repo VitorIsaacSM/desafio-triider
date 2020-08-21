@@ -1,0 +1,48 @@
+@import '../../../../shared/styles/index.scss';
+
+.cadastro {
+    @include telas-login-mobile;
+
+    h1 {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        i {
+            left: 0;
+            position: absolute;
+            font-size: 22px;
+        }
+    }
+
+    div.content.fadeIn {
+
+        form {
+            animation: fadeIn 0.3s ease-in;
+        }
+    }
+
+    @include pc-layout {
+        @include telas-login-pc;
+
+        h1 {
+            justify-content: flex-start;
+
+            i {
+                position: relative;
+                margin-right: 20px;
+                font-size: 30px;
+                cursor: pointer;
+
+                &:hover {
+                    color: black;
+                }
+            }
+        }
+
+        div.content.fadeIn form {
+            animation: none;
+        }
+    }
+}

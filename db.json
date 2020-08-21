@@ -1,0 +1,299 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "usuário teste",
+      "email": "teste@teste.com",
+      "category": "magician",
+      "password": "1",
+      "week_days": [
+        "monday",
+        "tuesday",
+        "wednesday",
+        "thursday",
+        "friday",
+        "saturday",
+        "sunday"
+      ],
+      "day_shifts": [
+        "morning",
+        "afternoon",
+        "night"
+      ],
+      "price": 200
+    },
+    {
+      "email": "teste@teste",
+      "password": "$2a$10$NR0Afh8RaxKnrrPgqwbxV.qnpZR6N1/qpHNBffKmP6f3YSWR4H5R.",
+      "nome": "teste",
+      "senha": "123345",
+      "categoria": "MAGICO",
+      "diasSemana": [
+        {
+          "value": false,
+          "name": "Segunda"
+        },
+        {
+          "value": true,
+          "name": "Terça"
+        },
+        {
+          "value": true,
+          "name": "Quarta"
+        },
+        {
+          "value": false,
+          "name": "Quinta"
+        },
+        {
+          "value": false,
+          "name": "Sexta"
+        },
+        {
+          "value": false,
+          "name": "Sábado"
+        },
+        {
+          "value": false,
+          "name": "Domingo"
+        }
+      ],
+      "turnos": [
+        {
+          "value": true,
+          "name": "Manhã"
+        },
+        {
+          "value": false,
+          "name": "Tarde"
+        },
+        {
+          "value": false,
+          "name": "Noite"
+        }
+      ],
+      "preco": "R$ 222,00",
+      "id": 2
+    },
+    {
+      "email": "22@22",
+      "password": "$2a$10$sTALU7M.OjOWjUkAYdgleeK66ILG3jBsJcUrFaJbZz1S90RrhhDGm",
+      "nome": "23",
+      "senha": "12345",
+      "categoria": "MAGICO",
+      "diasSemana": [
+        {
+          "value": false,
+          "name": "Segunda"
+        },
+        {
+          "value": false,
+          "name": "Terça"
+        },
+        {
+          "value": true,
+          "name": "Quarta"
+        },
+        {
+          "value": true,
+          "name": "Quinta"
+        },
+        {
+          "value": false,
+          "name": "Sexta"
+        },
+        {
+          "value": false,
+          "name": "Sábado"
+        },
+        {
+          "value": false,
+          "name": "Domingo"
+        }
+      ],
+      "turnos": [
+        {
+          "value": false,
+          "name": "Manhã"
+        },
+        {
+          "value": true,
+          "name": "Tarde"
+        },
+        {
+          "value": false,
+          "name": "Noite"
+        }
+      ],
+      "preco": "R$ 222,00",
+      "id": 3
+    },
+    {
+      "email": "e@e",
+      "password": "$2a$10$Biyf1tBBTFUcldwRbRqQqO5SfLDWvMrlqA/IgH3.e.vV81sY0WRCm",
+      "nome": "Vitor",
+      "categoria": "PALHACO",
+      "diasSemana": [
+        {
+          "value": true,
+          "name": "Segunda"
+        },
+        {
+          "value": true,
+          "name": "Terça"
+        },
+        {
+          "value": true,
+          "name": "Quarta"
+        },
+        {
+          "value": false,
+          "name": "Quinta"
+        },
+        {
+          "value": false,
+          "name": "Sexta"
+        },
+        {
+          "value": true,
+          "name": "Sábado"
+        },
+        {
+          "value": true,
+          "name": "Domingo"
+        }
+      ],
+      "turnos": [
+        {
+          "value": true,
+          "name": "Manhã"
+        },
+        {
+          "value": true,
+          "name": "Tarde"
+        },
+        {
+          "value": false,
+          "name": "Noite"
+        }
+      ],
+      "preco": "R$ 100,00",
+      "id": 4
+    },
+    {
+      "email": "22@2",
+      "password": "$2a$10$KQrnN0KIoLUAJTtrVkBPke3c4/xnaSrZXQ7jRzI0BYkGq66b3YBqS",
+      "nome": "232",
+      "categoria": "MAGICO",
+      "diasSemana": [
+        {
+          "value": false,
+          "name": "Segunda"
+        },
+        {
+          "value": false,
+          "name": "Terça"
+        },
+        {
+          "value": true,
+          "name": "Quarta"
+        },
+        {
+          "value": true,
+          "name": "Quinta"
+        },
+        {
+          "value": true,
+          "name": "Sexta"
+        },
+        {
+          "value": false,
+          "name": "Sábado"
+        },
+        {
+          "value": false,
+          "name": "Domingo"
+        }
+      ],
+      "turnos": [
+        {
+          "value": false,
+          "name": "Manhã"
+        },
+        {
+          "value": true,
+          "name": "Tarde"
+        },
+        {
+          "value": false,
+          "name": "Noite"
+        }
+      ],
+      "preco": "R$ 12.232,00",
+      "id": 5
+    },
+    {
+      "email": "vitor.maia@dbserver.com.br",
+      "password": "$2a$10$MUG9yn.vv4iK7ElRRmlHfupUfbVHHrsTu0rigBdaH0x7WU7z.U9Fe",
+      "nome": "vitor isaac sitton maia",
+      "categoria": "MAGICO",
+      "diasSemana": [
+        {
+          "value": false,
+          "name": "Segunda"
+        },
+        {
+          "value": false,
+          "name": "Terça"
+        },
+        {
+          "value": false,
+          "name": "Quarta"
+        },
+        {
+          "value": false,
+          "name": "Quinta"
+        },
+        {
+          "value": false,
+          "name": "Sexta"
+        },
+        {
+          "value": false,
+          "name": "Sábado"
+        },
+        {
+          "value": true,
+          "name": "Domingo"
+        }
+      ],
+      "turnos": [
+        {
+          "value": true,
+          "name": "Manhã"
+        },
+        {
+          "value": true,
+          "name": "Tarde"
+        },
+        {
+          "value": true,
+          "name": "Noite"
+        }
+      ],
+      "preco": "R$ 23.232,00",
+      "id": 6
+    }
+  ],
+  "events": [
+    {
+      "id": 1,
+      "user_id": 1,
+      "name": "evento teste",
+      "date": "1574433747316",
+      "week_day": "friday",
+      "day_shift": "morning",
+      "address": "Rua Teste, 200 - 221B"
+    }
+  ]
+}

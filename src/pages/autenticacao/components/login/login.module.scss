@@ -1,0 +1,31 @@
+@import '../../../../shared/styles/index.scss';
+
+.login {
+    @include telas-login-mobile;
+
+    div.content {
+
+        form {
+
+            p.invalidText {
+                color: $red;
+                text-align: left;
+            }
+
+            & > div:last-child {
+
+                p {
+                    color: #9D9B9B;
+                    text-align: right;
+                }
+
+            }
+        }
+    }
+
+    @include pc-layout {
+        @include telas-login-pc;
+
+        // padding: 5% 0;
+    }
+}

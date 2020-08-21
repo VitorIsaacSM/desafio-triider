@@ -1,0 +1,28 @@
+@import '../../styles/index.scss';
+
+label.customInput {
+
+    @include custom-input;
+
+    div {
+        position: relative;
+        display: flex;
+        align-items: center;
+
+        i {
+            color: $gray;
+            position: absolute;
+            right: 10px;
+            font-size: 15px;
+        }
+    }
+
+    input {
+        &[type=password] {
+            padding-right: 26px;
+        }
+    }
+
+
+
+}

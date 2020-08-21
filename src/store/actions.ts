@@ -10,6 +10,8 @@ export interface CustomAction extends Action<ActionTypes>{
 }
 
 export const setUsuario = (user: Usuario, token: string): CustomAction => {
+    localStorage.setItem('user', JSON.stringify(user));
+    localStorage.setItem('token', token);
     return {
         type: ActionTypes.LOGIN,
         payload: {

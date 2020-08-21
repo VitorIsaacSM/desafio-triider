@@ -12,6 +12,7 @@ import * as service from './services/evento.service';
 import { Evento } from './services/evento.service';
 import CalendarioSlider from './components/calendario-slider/calendario-slider';
 import { CheckboxItem } from 'shared/components/checkbox-list/checkbox-list';
+import { compareDates } from 'shared/utils/dates';
 
 interface State {
   diaAtual: Date;
@@ -137,15 +138,15 @@ class Calendario extends Component<{usuario: Usuario | undefined}, State> {
         .then(res => {
           evento.id = res.data.id
 
-          const diferencaDias = evento.data.getDate() - this.state.diaAtual.getDate();
-          const semanaAtual = new Date(this.state.semanaAtual);
-          semanaAtual.setDate(semanaAtual.getDate() + diferencaDias + 1);
+          // const diferencaDias = evento.data.getDate() - this.state.diaAtual.getDate();
+          // const semanaAtual = new Date(this.state.semanaAtual);
+          // semanaAtual.setDate(semanaAtual.getDate() + diferencaDias);
 
           this.setState({
             eventos: [...this.state.eventos, evento],
             showModalEvento: false,
-            diaAtual: evento.data,
-            semanaAtual
+            // diaAtual: evento.data,
+            // semanaAtual
           });
         });
     }
@@ -162,7 +163,7 @@ class Calendario extends Component<{usuario: Usuario | undefined}, State> {
 
   verificarEventoAgendado = (dia: Date, turno: string) => {
     return this.state.eventos.find(e => {
-      return  new Date(e.data).toDateString() === dia.toDateString() && e.turno === turno
+      return  compareDates(new Date(e.data), dia) &&  e.turno === turno
     });
   }
 

@@ -115,8 +115,16 @@ export class CalendarioSlider extends Component<Props> {
                 <div className={styles.content}>
                     {this.props.turnos.map(turno => {
                         const dia = new Date(this.props.semanaAtual);
-                        dia.setDate(dia.getDate() + index + 1)
-                        if (turno.value && this.props.diasSemana[dia.getDay()].value) {
+                        const isMobile = window.innerWidth < 770 && window.innerHeight > window.innerWidth
+
+                        if (isMobile) {
+                            dia.setUTCDate(dia.getUTCDate() + index + 2);
+                        } else {
+                            dia.setUTCDate(dia.getUTCDate() + index);
+                        }
+
+                        // if (turno.value && this.props.diasSemana[index].value) {
+                        if (turno.value && this.props.diasSemana[ isMobile ? dia.getDay() : index].value) {
                             const agendado = this.props.verificarEventoAgendado(dia, turno.name);
                             return (
                                 <div key={turno.name} className={styles.disponivel}>

@@ -18,6 +18,13 @@
         padding: 5px 15px;
     }
 
+
+    @include tablet-layout {
+        padding: 0px 200px;
+        padding-bottom: 50%;
+        padding-top: 100px
+    }
+
     @include pc-layout {
         background-size: contain;
         background-repeat: no-repeat;

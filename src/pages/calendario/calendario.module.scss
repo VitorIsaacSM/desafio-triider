@@ -1,6 +1,42 @@
+@import '../../shared/styles/index.scss';
+
 .calendario {
+    color: white;
+    padding: 10px 0;
     height: 100vh;
     background: linear-gradient(167.9deg, rgba(#FC66A4, 0.8) 0%, rgba(#993CFF, 0.8) 98.7%);
 
-    
+
+    div.spacing {
+        padding: 20px 40px;
+    }
+
+    button.addEvento {
+        @include custom-button(white, transparent, white);
+    }
+
+    form.modalEvento {
+
+        padding: 10px 0;
+
+        h2 {
+            color: $primary;
+            margin: 0rem;
+        }
+
+        & > div:first-of-type {
+            display: flex;
+            justify-content: space-between;
+            margin: 20px 0;
+
+            & > label {
+                width: 48%;
+                margin: 0;
+            }
+        }
+
+        button:last-child {
+            @include button-gradient;
+        }
+    }
 }

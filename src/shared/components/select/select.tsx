@@ -22,7 +22,7 @@ export const Select: React.FC<Props> = props => {
     <label htmlFor={props.control.id} className={classes.join(' ')}>
       <span>{props.control.label}</span>
       <select id={props.control.id} value={props.control.value} onChange={props.changeHandler}>
-        <option value="">Selecione uma opção</option>
+        <option value="">Selecione...</option>
         {options}
       </select>
     </label>

@@ -2,7 +2,6 @@ import React, { ChangeEvent, useState, useRef, useEffect } from 'react'
 import styles from './input.module.scss';
 import Inputmask from 'inputmask';
 import { FormControl } from 'shared/models/form-control';
-import { PartialBy } from 'shared/utils/partial-by';
 
 interface Props {
     changeHandler?: (event: ChangeEvent<HTMLInputElement>) => void
@@ -18,7 +17,7 @@ export const Input: React.FC<Props> = props => {
         if (props.currency && inputEl && inputEl.current) {
             Inputmask('currency', {rightAlign: false, radixPoint: ',',prefix: 'R$ '}).mask(inputEl.current)
         }
-    }, []);
+    }, [props.currency]);
     
     const inputEl = useRef<HTMLInputElement>(null);
     const classes = [styles.customInput, props.control.invalid ? styles.invalid : ''];

@@ -1,16 +1,14 @@
-import React, { Component, ChangeEvent, FormEvent, Dispatch } from 'react';
+import React, { Component, FormEvent, Dispatch } from 'react';
 import styles from './cadastro.module.scss';
 import { FormControl, Formulario, validarFormulario, atualizarValidadeFormulario, validarCampo, valoresFormulario } from 'shared/models/form-control';
 import { Input } from 'shared/components/input/input';
-import Select, { SelectOption } from 'shared/components/select/select';
-import Checkbox from 'shared/components/checkbox/checkbox';
+import Select from 'shared/components/select/select';
 import CheckboxList, { CheckboxItem } from 'shared/components/checkbox-list/checkbox-list';
 import * as service from '../../services/autenticacao.service';
 import { Usuario } from 'shared/models/user';
-import { connect, DispatchProp } from 'react-redux';
+import { connect } from 'react-redux';
 import { setUsuario, CustomAction } from 'store/actions';
-import { withRouter, RouteComponentProps, Route } from 'react-router-dom';
-import { Endpoints } from 'api/endpoints';
+import { withRouter, RouteComponentProps } from 'react-router-dom';
 import { Routes } from 'shared/models/routes';
 
 interface DispatchToProps {

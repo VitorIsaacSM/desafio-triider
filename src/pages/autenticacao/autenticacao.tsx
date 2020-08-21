@@ -20,12 +20,7 @@ class Autenticacao extends Component<DispatchToProps, State> {
   state: State = {
     telaAtiva: 'inicio'
   }
-
-  componentDidMount() {
-    console.log('entrei no login')
-    this.props.logOut();
-  }
-
+  
   onCriarConta = () =>  {
     this.setState({telaAtiva: 'cadastro'});
   }

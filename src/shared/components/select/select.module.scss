@@ -6,5 +6,9 @@
     select {
         color: $primary;
         font-family: inherit;
+
+        @include phone-layout {
+            font-size: 12px;
+        }
     }
 }

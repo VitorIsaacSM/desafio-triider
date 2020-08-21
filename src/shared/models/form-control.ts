@@ -2,7 +2,7 @@ import { CheckboxItem } from "shared/components/checkbox-list/checkbox-list";
 
 export interface FormControl<T = any> {
     value: T;
-    type: 'text' | 'number' | 'email' | 'checkbox' | 'password' | 'select' | 'checkbox-list';
+    type: 'text' | 'number' | 'email' | 'date' |'checkbox' | 'password' | 'select' | 'checkbox-list';
     label: string;
     id: string;
     required?: boolean;
@@ -45,6 +45,18 @@ export const atualizarValidadeFormulario = <F extends Formulario>(form: F): F =>
         formAtualizado[key] = {
             ...formAtualizado[key],
             invalid: validarCampo(formAtualizado[key])
+        }
+    });
+
+    return formAtualizado as F;
+}
+
+export const resetarValoresFormulario = <F extends Formulario>(form: Formulario): F => {
+    const formAtualizado = {...form};
+    Object.keys(form).forEach(key => {
+        formAtualizado[key] = {
+            ...formAtualizado[key],
+            value: ''
         }
     });
 

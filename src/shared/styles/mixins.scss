@@ -73,6 +73,15 @@
   }
 }
 
+@mixin button-gradient {
+  @include custom-button(
+    white,
+    linear-gradient(92.05deg, #f180c1 4.55%, #a450c9 95.79%),
+    none,
+    initial
+  );
+}
+
 @mixin custom-input {
   text-align: left;
   height: auto;
@@ -145,12 +154,7 @@
       flex: 1;
 
       button {
-        @include custom-button(
-          white,
-          linear-gradient(92.05deg, #f180c1 4.55%, #a450c9 95.79%),
-          none,
-          initial
-        );
+        @include button-gradient;
         font-size: 18px;
         padding: 15px 0;
       }

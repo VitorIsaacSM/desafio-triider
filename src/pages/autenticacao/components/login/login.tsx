@@ -1,11 +1,11 @@
 import React, { Component, ChangeEvent, FormEvent, Dispatch } from 'react';
 import styles from './login.module.scss';
 import { Input } from 'shared/components/input/input';
-import { FormControl, validarCampo, Formulario, atualizarValidadeFormulario, validarFormulario } from 'shared/models/form-control';
+import { FormControl, validarCampo, atualizarValidadeFormulario, validarFormulario } from 'shared/models/form-control';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { Usuario } from 'shared/models/user';
-import { CustomAction, setUsuario, logOut } from 'store/actions';
+import { CustomAction, setUsuario } from 'store/actions';
 import * as service from '../../services/autenticacao.service';
 import { JWT } from 'shared/utils/jwt';
 import { Routes } from 'shared/models/routes';

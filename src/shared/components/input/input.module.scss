@@ -21,6 +21,11 @@ label.customInput {
         &[type=password] {
             padding-right: 26px;
         }
+
+        &[type=date] {
+            font-size: 11px;
+            font-family: 'Quicksand', sans-serif;
+        }
     }
 
 

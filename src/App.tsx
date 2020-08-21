@@ -16,25 +16,18 @@ interface DispatchToProps {
 
 class App extends Component<{isLogged: boolean} & DispatchToProps> {
   
-  componentDidMount() {
-    const user = localStorage.getItem('user');
-    const token = localStorage.getItem('token');
-    if (user && token) {
-      this.props.setUser(JSON.parse(user), token);
-    }
-  }
-
   render() {
     return (
+
       <div>
-        <BrowserRouter>
-          { this.props.isLogged ? <Header clickSair={this.props.logOut}/> : null}
-          <Switch>
-            <Route path={Routes.Login} component={Autenticacao} />
-            {this.props.isLogged ? <Route path={Routes.Calendario} component={Calendario} /> : null}
-            <Redirect path="/" to={Routes.Login} />
-          </Switch>
-        </BrowserRouter>
+          <BrowserRouter>
+            { this.props.isLogged ? <Header clickSair={this.props.logOut}/> : null}
+            <Switch>
+              <Route path={Routes.Login} component={Autenticacao} />
+              {this.props.isLogged ? <Route path={Routes.Calendario} component={Calendario} /> : null}
+              <Redirect path="/" to={this.props.isLogged ? Routes.Calendario : Routes.Login} />
+            </Switch>
+          </BrowserRouter>
       </div>
     );
   }

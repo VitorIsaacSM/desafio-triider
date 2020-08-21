@@ -294,6 +294,54 @@
       "week_day": "friday",
       "day_shift": "morning",
       "address": "Rua Teste, 200 - 221B"
+    },
+    {
+      "idUsuario": 2,
+      "data": "2020-08-22T00:00:00.000Z",
+      "local": "2020-08-22",
+      "nome": "2020-08-22",
+      "turno": "2020-08-22",
+      "id": 2
+    },
+    {
+      "idUsuario": 2,
+      "data": "2020-08-20T00:00:00.000Z",
+      "local": "2323",
+      "nome": "teste",
+      "turno": "Manhã",
+      "id": 3
+    },
+    {
+      "idUsuario": 2,
+      "data": "2020-08-22T00:00:00.000Z",
+      "local": "12313",
+      "nome": "Vitor isaac sitton maia",
+      "turno": "Manhã",
+      "id": 4
+    },
+    {
+      "idUsuario": 2,
+      "data": "2020-08-22T00:00:00.000Z",
+      "local": "ewrrw",
+      "nome": "Vitor isaac sitton maia",
+      "turno": "Manhã",
+      "id": 5
+    },
+    {
+      "idUsuario": 2,
+      "data": "2020-08-20T00:00:00.000Z",
+      "local": "123123",
+      "nome": "123123",
+      "turno": "Manhã",
+      "id": 6
+    },
+    {
+      "idUsuario": 2,
+      "data": "2020-08-22T00:00:00.000Z",
+      "local": "123123",
+      "nome": "7848484",
+      "turno": "Manhã",
+      "id": 7
     }
   ]
 }

@@ -20,11 +20,11 @@ const Inicio: React.FC<Props> = (props) => (
 
       <div className={styles.cards}>
         <div className={styles.card}>
-          <img src={balaoIcon} />
+          <img src={balaoIcon} alt="icone balão"/>
           <p>Cadastre suas festas e organize sua agenda!</p>
         </div>
         <div className={styles.card}>
-          <img src={cornetaIcon} />
+          <img src={cornetaIcon} alt="icone corneta"/>
           <p>Informe sua disponibilidade de dias e horários e crie um calendário personalizado</p>
         </div>
       </div>

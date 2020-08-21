@@ -11,10 +11,11 @@ import { connect } from 'react-redux';
 import * as service from './services/evento.service';
 import { Evento } from './services/evento.service';
 import CalendarioSlider from './components/calendario-slider/calendario-slider';
+import { CheckboxItem } from 'shared/components/checkbox-list/checkbox-list';
 
 interface State {
   diaAtual: Date;
-  semanaAtual: number;
+  semanaAtual: Date;
   showModalEvento: boolean;
   formEvento: {
     nome: FormControl;
@@ -31,7 +32,7 @@ class Calendario extends Component<{usuario: Usuario | undefined}, State> {
 
   state: State = {
     diaAtual: dataAtual,
-    semanaAtual: dataAtual.setDate(dataAtual.getDate() - dataAtual.getDay()),
+    semanaAtual: this.getPrimeiroDiaSemana(dataAtual),
     showModalEvento: false,
     formEvento: {
       nome: {
@@ -65,15 +66,44 @@ class Calendario extends Component<{usuario: Usuario | undefined}, State> {
     },
     eventos: []
   }
-  turnos: SelectOption[] = [];
+
+  diasSemana: CheckboxItem[] = [];
+  turnos: CheckboxItem[] = [];
+  turnosDisponiveisSelecao: SelectOption[] = [];
 
   componentDidMount() {
-    this.turnos = this.props.usuario?.turnos.filter(t => t.value).map((t) => ({name: t.name, value: t.name})) as SelectOption[];
+    this.turnos = this.props.usuario?.turnos as CheckboxItem[];
+    this.turnosDisponiveisSelecao = this.turnos.filter(t => t.value).map((t) => ({name: t.name, value: t.name}));
+    this.diasSemana = this.props.usuario?.diasSemana as CheckboxItem[];
     service.listarEventos((this.props.usuario as Usuario).id)
       .then(res => this.setState({eventos: res.data}))
+
+      window.addEventListener('resize', () => {
+        const newDataAtual = new Date();
+        this.setState({
+          diaAtual: newDataAtual,
+          semanaAtual: this.getPrimeiroDiaSemana(newDataAtual),
+        })
+      });
   }
 
+  getPrimeiroDiaSemana(date: Date) {
+    const newDate = new Date(date)
+    newDate.setDate(date.getDate() - date.getDay())
+    return newDate
+  }
 
+  alterarDiaAtual = (numDias: number) => {
+    const novoDataAtual = new Date(this.state.diaAtual);
+    novoDataAtual.setUTCDate(novoDataAtual.getUTCDate() + numDias);
+    const novoDiaInicioSemana = new Date(this.state.semanaAtual);
+    novoDiaInicioSemana.setDate(novoDiaInicioSemana.getDate() + numDias);
+
+    this.setState({
+      diaAtual: novoDataAtual,
+      semanaAtual: novoDiaInicioSemana
+    })
+  }
 
   formChangeHandler = (valor: any, control: FormControl) => {
     const updatedControl: FormControl = { 
@@ -106,10 +136,16 @@ class Calendario extends Component<{usuario: Usuario | undefined}, State> {
       service.cadastrarEvento(evento)
         .then(res => {
           evento.id = res.data.id
+
+          const diferencaDias = evento.data.getDate() - this.state.diaAtual.getDate();
+          const semanaAtual = new Date(this.state.semanaAtual);
+          semanaAtual.setDate(semanaAtual.getDate() + diferencaDias + 1);
+
           this.setState({
             eventos: [...this.state.eventos, evento],
             showModalEvento: false,
-            diaAtual: evento.data
+            diaAtual: evento.data,
+            semanaAtual
           });
         });
     }
@@ -124,14 +160,30 @@ class Calendario extends Component<{usuario: Usuario | undefined}, State> {
     this.setState({showModalEvento: false});
   }
 
+  verificarEventoAgendado = (dia: Date, turno: string) => {
+    return this.state.eventos.find(e => {
+      return  new Date(e.data).toDateString() === dia.toDateString() && e.turno === turno
+    });
+  }
+
   render() {
     return  (
       <div className={styles.calendario} data-testid="calendario">
         <div className={styles.spacing}>
           <h2>{this.state.diaAtual.getUTCDate()} de {MESES_ANO[this.state.diaAtual.getUTCMonth()]}</h2>
         </div>
-        <div>
-          <CalendarioSlider diaAtual={this.state.diaAtual} semanaAtual={this.state.semanaAtual}/>
+        <div className={styles.headerPc}>
+          <h1>{MESES_ANO[this.state.diaAtual.getUTCMonth()]}</h1>
+          <button onClick={this.openModal}>Novo evento</button>
+        </div>
+        <div className={styles.sliderDiv}>
+          <CalendarioSlider 
+              diaAtual={this.state.diaAtual}
+              semanaAtual={this.state.semanaAtual}
+              turnos={this.turnos}
+              diasSemana={this.diasSemana}
+              verificarEventoAgendado={this.verificarEventoAgendado}
+              modificarDia={this.alterarDiaAtual}/>
         </div>
         <div className={styles.spacing}>
           <button onClick={this.openModal} className={styles.addEvento}>  
@@ -149,7 +201,7 @@ class Calendario extends Component<{usuario: Usuario | undefined}, State> {
                 <Input control={this.state.formEvento.data}
                   changeHandler={event => this.formChangeHandler(event.target.value, this.state.formEvento.data)}/>
                 <Select control={this.state.formEvento.turno}
-                  options={this.turnos}
+                  options={this.turnosDisponiveisSelecao}
                   changeHandler={event => this.formChangeHandler(event.target.value, this.state.formEvento.turno)}/>
               </div>
               <button type="submit">Adicionar Evento</button>

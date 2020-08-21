@@ -25,6 +25,10 @@ label.customInput {
         &[type=date] {
             font-size: 11px;
             font-family: 'Quicksand', sans-serif;
+
+            @include pc-layout {
+                font-size: 15px;
+            }
         }
     }
 

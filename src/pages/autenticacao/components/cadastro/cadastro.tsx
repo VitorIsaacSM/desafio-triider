@@ -10,6 +10,7 @@ import { connect } from 'react-redux';
 import { setUsuario, CustomAction } from 'store/actions';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
 import { Routes } from 'shared/models/routes';
+import { JWT } from 'shared/utils/jwt';
 
 interface DispatchToProps {
   setUser: (user: Usuario, token: string) => void
@@ -75,7 +76,12 @@ class Cadastro extends Component<Props, State> {
         required: true
       },
       diasSemana: {
-        value: [{
+        value: [
+        {
+          value: false,
+          name: 'Domingo'
+        },
+        {
           value: false,
           name: 'Segunda'
         },
@@ -98,10 +104,6 @@ class Cadastro extends Component<Props, State> {
         {
           value: false,
           name: 'Sábado'
-        },
-        {
-          value: false,
-          name: 'Domingo'
         }],
         id: 'diasSemana',
         label: 'Selecione os dias da semana que trabalhará',
@@ -201,6 +203,8 @@ class Cadastro extends Component<Props, State> {
       }
       service.cadastrar(usuario)
         .then(res => {
+          const idUsuario = JWT.decode<{sub: string}>(res.data.accessToken).sub;
+          usuario.id = +idUsuario;
           this.props.setUser(usuario, res.data.accessToken)
           this.props.history.push(Routes.Calendario);
         })

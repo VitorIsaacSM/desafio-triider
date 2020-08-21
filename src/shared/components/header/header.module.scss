@@ -1,34 +1,50 @@
-@import '../../styles/index.scss';
+@import "../../styles/index.scss";
 
 .header {
-    display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 10px;
+  color: white;
+  width: 100%;
 
-    @include pc-layout {
-        position: fixed;
-        top: 0;
-        left: 0;
+  p {
+    margin: 0;
+  }
 
-        z-index: 1;
+  i {
+    margin-left: 5px;
+  }
 
-        display: block;
-        width: 100vw;
-        height: 50px;
-        background-color: white;
-        box-shadow: 0px 2px 4px $shadow-light;
-        display: flex;
-        align-items: center;
-        justify-content: flex-end;
-        padding: 10px;
+  @include pc-layout {
+    width: 100vw;
+    height: 50px;
+    background-color: white;
+    box-shadow: 0px 2px 4px $shadow-light;
+    color: $dark-gray;
+    text-align: right;
 
-        i {
-            position: absolute;
-            font-size: 25px;
-            color: $dark-gray;
-            cursor: pointer;
+    & > div {
+      font-size: 20px;
+      color: $dark-gray;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
 
-            &:hover {
-                color: black;
-            }
-        }
+      i {
+        font-size: 25px;
+        margin-left: 10px;
+      }
+
+      cursor: pointer;
+
+      &:hover {
+        color: black;
+      }
     }
+  }
 }

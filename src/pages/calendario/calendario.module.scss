@@ -5,10 +5,24 @@
     padding: 10px 0;
     height: 100vh;
     background: linear-gradient(167.9deg, rgba(#FC66A4, 0.8) 0%, rgba(#993CFF, 0.8) 98.7%);
+    display: flex;
+    flex-flow: column;
 
 
     div.spacing {
         padding: 20px 40px;
+
+        & > h2 {
+            margin: 0;
+        }
+    }
+
+    div.headerPc {
+        display: none;
+    }
+
+    div.sliderDiv {
+        flex: 1;
     }
 
     button.addEvento {
@@ -37,6 +51,57 @@
 
         button:last-child {
             @include button-gradient;
+        }
+    }
+
+
+    @include pc-layout {
+        color: $dark-gray;
+        padding-top: 50px;
+        background: $light-gray;
+        position: relative;
+
+        & > div:first-child {
+            display: none;
+        }
+
+        div.headerPc {
+            max-width: 80vw;
+            margin: auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 0;
+            width: 100%;
+
+            h1 {
+                font-weight: bold;
+            }
+
+            button {
+                max-width: 10vw;
+                font-size: 20px;
+                @include custom-button(white, $primary);
+            }
+        }
+
+        div.sliderDiv {
+            width: 100%;
+        }
+
+        button.addEvento {
+            display: none;
+            font-size: 20px;
+        }
+
+        form.modalEvento {
+            padding: 15px;
+
+            button:last-child {
+                margin-top: 20px;
+                padding: 18px;
+                font-size: 20px;
+            }
         }
     }
 }
